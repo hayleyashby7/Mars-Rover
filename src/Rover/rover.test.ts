@@ -1,4 +1,4 @@
-import { Rover } from './rover.d';
+import { Rover, Position } from './rover.d';
 import { createRover } from './rover';
 
 describe('Rover', () => {
