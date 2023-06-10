@@ -22,7 +22,7 @@ describe('Rover', () => {
 		expect(result.ID).toEqual(expectedID);
 	});
 
-	it('has a default ID of 0', () => {
+	it('has a default ID of 0 if none provided', () => {
 		// Arrange
 		const expectedID: number = 0;
 
@@ -32,5 +32,17 @@ describe('Rover', () => {
 		// Assert
 		expect(result.ID).toBeDefined();
 		expect(result.ID).toEqual(expectedID);
+	});
+
+	it('has a position', () => {
+		// Arrange
+		const expectedPosition: Position = { x: 0, y: 0 };
+
+		// Act
+		const result: Rover = createRover();
+
+		// Assert
+		expect(result.position).toBeDefined();
+		expect(result.position).toEqual(expectedPosition);
 	});
 });
