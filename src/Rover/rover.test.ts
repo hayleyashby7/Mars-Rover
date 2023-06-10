@@ -60,16 +60,27 @@ describe('Create Rover', () => {
 });
 
 describe('Change Direction', () => {
-    it('can change direction from North to East', () => { 
-        // Arrange
-        const rover: Rover = createRover();
-        const expectedDirection: Direction = 'E';
+	it('can change direction', () => {
+		// Arrange
+		const rover: Rover = createRover();
+		const expectedDirection: Direction = 'E';
 
-        // Act
-        rover.direction = 'E';
+		// Act
+		rover.direction = 'E';
 
-        // Assert
-        expect(rover.direction).toEqual(expectedDirection);
-    });
+		// Assert
+		expect(rover.direction).toEqual(expectedDirection);
+	});
 
+	it('can change to a valid direction', () => {
+		// Arrange
+		const rover: Rover = createRover();
+		const expectedDirection: Direction = 'S';
+
+		// Act
+		rover.direction = 'S';
+
+		// Assert
+		expect(rover.direction).toEqual(expectedDirection);
+	});
 });
