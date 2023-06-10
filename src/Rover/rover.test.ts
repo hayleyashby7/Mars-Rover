@@ -72,7 +72,7 @@ describe('Change Direction', () => {
 		expect(rover.direction).toEqual(expectedDirection);
 	});
 
-	it('can change to a valid direction', () => {
+	it('can only change to a valid direction', () => {
 		// Arrange
 		const rover: Rover = createRover();
 		const expectedDirection: Direction = 'S';
@@ -82,5 +82,19 @@ describe('Change Direction', () => {
 
 		// Assert
 		expect(rover.direction).toEqual(expectedDirection);
+	});
+});
+
+describe('Change Position', () => {
+	it('can change position', () => {
+		// Arrange
+		const rover: Rover = createRover();
+		const expectedPosition: Position = { x: 3, y: 5 };
+
+		// Act
+		rover.position = expectedPosition;
+
+		// Assert
+		expect(rover.position).toEqual(expectedPosition);
 	});
 });
