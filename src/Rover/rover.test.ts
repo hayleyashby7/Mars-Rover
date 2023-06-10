@@ -1,10 +1,10 @@
 describe('Rover', () => {
 	it('can be created', () => {
 		// Arrange
-		const expected = true;
+		const expected: boolean = true;
 
 		// Act
-		const result = createRover();
+		const result: boolean = createRover();
 
 		// Assert
 		expect(result).toBe(expected);
