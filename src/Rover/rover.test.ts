@@ -82,19 +82,33 @@ describe('Change Direction', () => {
 
 		// Assert
 		expect(rover.direction).toEqual(expectedDirection);
-	});
+    });
+    
 });
 
 describe('Change Position', () => {
 	it('can change position', () => {
 		// Arrange
 		const rover: Rover = createRover();
-		const expectedPosition: Position = { x: 3, y: 5 };
+		const expectedPosition: Position = { x: 1, y: 1 };
 
 		// Act
 		rover.position = expectedPosition;
 
 		// Assert
 		expect(rover.position).toEqual(expectedPosition);
-	});
+    });
+
+    it('cannot change position to a negative value', () => {
+        // Arrange
+        const rover: Rover = createRover();
+        const expectedPosition: Position = { x: 0, y: 0 };
+
+        // Act
+        rover.position = { x: -1, y: -1 };
+
+        // Assert
+        expect(rover.position).toEqual(expectedPosition);
+    });
+
 });
