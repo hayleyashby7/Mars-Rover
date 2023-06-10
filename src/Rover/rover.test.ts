@@ -45,4 +45,16 @@ describe('Rover', () => {
 		expect(result.position).toBeDefined();
 		expect(result.position).toEqual(expectedPosition);
 	});
+
+	it('has a direction', () => {
+		// Arrange
+		const expectedDirection: Direction = 'N';
+
+		// Act
+		const result: Rover = createRover();
+
+		// Assert
+		expect(result.direction).toBeDefined();
+		expect(result.direction).toEqual(expectedDirection);
+	});
 });
