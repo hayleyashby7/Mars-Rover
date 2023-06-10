@@ -1,5 +1,5 @@
-import { Rover, Position, Direction } from './rover.d';
-import { createRover } from './rover';
+import { Position, Direction } from './rover.d';
+import { Rover, changePosition, createRover } from './rover';
 
 describe('Create Rover', () => {
 	it('can be created', () => {
@@ -82,8 +82,7 @@ describe('Change Direction', () => {
 
 		// Assert
 		expect(rover.direction).toEqual(expectedDirection);
-    });
-    
+	});
 });
 
 describe('Change Position', () => {
@@ -93,22 +92,21 @@ describe('Change Position', () => {
 		const expectedPosition: Position = { x: 1, y: 1 };
 
 		// Act
-		rover.position = expectedPosition;
+		const movedRover = changePosition(rover, { x: 1, y: 1 });
 
 		// Assert
-		expect(rover.position).toEqual(expectedPosition);
-    });
+		expect(movedRover.position).toEqual(expectedPosition);
+	});
 
-    it('cannot change position to a negative value', () => {
-        // Arrange
-        const rover: Rover = createRover();
-        const expectedPosition: Position = { x: 0, y: 0 };
+	it('cannot change position to a negative value', () => {
+		// Arrange
+		const rover: Rover = createRover();
+		const expectedPosition: Position = { x: 0, y: 0 };
 
-        // Act
-        rover.position = { x: -1, y: -1 };
+		// Act
+		const movedRover = changePosition(rover, { x: -1, y: -1 });
 
-        // Assert
-        expect(rover.position).toEqual(expectedPosition);
-    });
-
+		// Assert
+		expect(movedRover.position).toEqual(expectedPosition);
+	});
 });
