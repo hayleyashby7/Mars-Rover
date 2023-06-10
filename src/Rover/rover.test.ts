@@ -21,4 +21,16 @@ describe('Rover', () => {
 		expect(result.ID).toBeDefined();
 		expect(result.ID).toEqual(expectedID);
 	});
+
+	it('has a default ID of 0', () => {
+		// Arrange
+		const expectedID: number = 0;
+
+		// Act
+		const result: Rover = createRover();
+
+		// Assert
+		expect(result.ID).toBeDefined();
+		expect(result.ID).toEqual(expectedID);
+	});
 });
