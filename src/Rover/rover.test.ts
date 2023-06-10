@@ -1,7 +1,7 @@
 import { Rover, Position, Direction } from './rover.d';
 import { createRover } from './rover';
 
-describe('Rover', () => {
+describe('Create Rover', () => {
 	it('can be created', () => {
 		// Act
 		const result: Rover = createRover(1);
@@ -57,4 +57,19 @@ describe('Rover', () => {
 		expect(result.direction).toBeDefined();
 		expect(result.direction).toEqual(expectedDirection);
 	});
+});
+
+describe('Change Direction', () => {
+    it('can change direction from North to East', () => { 
+        // Arrange
+        const rover: Rover = createRover();
+        const expectedDirection: Direction = 'E';
+
+        // Act
+        rover.direction = 'E';
+
+        // Assert
+        expect(rover.direction).toEqual(expectedDirection);
+    });
+
 });
