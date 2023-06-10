@@ -1,3 +1,5 @@
+import { createRover } from './rover';
+
 describe('Rover', () => {
 	it('can be created', () => {
 		// Arrange
