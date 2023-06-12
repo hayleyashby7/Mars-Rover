@@ -76,4 +76,18 @@ describe('Plataeu', () => {
 		expect(resultAfter).toBe(false);
 	});
 
+	it('a grid location cannot be occupied if it is already occupied', () => {
+		//Arrange
+		const plateau: Plateau = createPlateau(5, 5);
+		const position: Position = { x: 1, y: 1 };
+
+		//Act
+		occupyLocation(plateau, position);
+		const occupied: boolean = isLocationEmpty(plateau, position);
+		const secondOccupy = occupyLocation(plateau, position);
+
+		//Assert
+		expect(occupied).toBe(true);
+		expect(secondOccupy).toThrowError();
+	});
 });
