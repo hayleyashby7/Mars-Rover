@@ -35,6 +35,7 @@ const generateGrid = (height: number, width: number): Cell[][] | null => {
 
 export const occupyLocation = (plateau: Plateau, position: Position): void => {
 	if (!plateau.grid) return;
+	if (!plateau.isLocationEmpty(plateau, position)) throw new Error('Location is not empty');
 
 	plateau.grid[position.x][position.y].occupied = true;
 };
