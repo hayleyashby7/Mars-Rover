@@ -1,5 +1,5 @@
 import { Plateau } from './plateau.d';
-import { createPlateau } from './plateau';
+import { createPlateau, isValidLocation } from './plateau';
 import { Position } from '../utils/position';
 describe('Plataeu', () => {
 	it('can be created', () => {
@@ -31,7 +31,7 @@ describe('Plataeu', () => {
 		const position: Position = { x: 0, y: 0 };
 
 		//Act
-		const validResult: boolean = plateau.isValidLocation(position);
+		const validResult: boolean = isValidLocation(plateau, position);
 
 		//Assert
 		expect(validResult).toBe(true);
