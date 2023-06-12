@@ -1,5 +1,5 @@
 import { Plateau } from './plateau.d';
-import { createPlateau, isValidLocation } from './plateau';
+import { createPlateau, isValidLocation, isLocationEmpty } from './plateau';
 import { Position } from '../utils/position';
 describe('Plataeu', () => {
 	it('can be created', () => {
