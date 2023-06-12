@@ -1,9 +1,10 @@
-export interface Position {
-	x: number;
-	y: number;
+import Direction from './direction';
+import Position from './position';
+
+export interface Rover {
+	ID: number;
+	position: Position;
+	direction: Direction;
+	changePosition: (rover: Rover, newPosition: Position) => Rover;
+	changeDirection: (rover: Rover, newDirection: string) => Rover;
 }
-
-const DIRECTION = ['N', 'E', 'S', 'W'] as const;
-
-export type Direction = (typeof DIRECTION)[number];
-

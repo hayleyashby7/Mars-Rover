@@ -1,5 +1,7 @@
-import { Position, Direction } from './rover.d';
-import { Rover, changePosition, createRover } from './rover';
+import { Rover } from './rover.d';
+import { changePosition, createRover, changeDirection } from './rover';
+import { Direction } from './direction';
+import { Position } from './position';
 
 describe('Create Rover', () => {
 	it('can be created', () => {
@@ -66,22 +68,23 @@ describe('Change Direction', () => {
 		const expectedDirection: Direction = 'E';
 
 		// Act
-		rover.direction = 'E';
+		const redirectedRover = changeDirection(rover, 'E');
 
 		// Assert
-		expect(rover.direction).toEqual(expectedDirection);
+		expect(redirectedRover.direction).toEqual(expectedDirection);
 	});
 
 	it('can only change to a valid direction', () => {
 		// Arrange
 		const rover: Rover = createRover();
-		const expectedDirection: Direction = 'S';
+		const expectedDirection: Direction = rover.direction;
 
 		// Act
-		rover.direction = 'S';
+		const redirectedRover = changeDirection(rover, 'X');
 
 		// Assert
-		expect(rover.direction).toEqual(expectedDirection);
+		expect(redirectedRover.direction).toEqual(expectedDirection);
+		expect(redirectedRover.direction).not.toEqual('X');
 	});
 });
 
