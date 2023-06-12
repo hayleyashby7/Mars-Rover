@@ -6,8 +6,8 @@ export const createPlateau = (height: number = 0, width: number = 0): Plateau =>
 	return plateau;
 };
 
-export const isValidLocation = (plateau: Plateau, position: Position): boolean => (isValidX(plateau, position.x) && isValidY(plateau, position.y) ? true : false);
+export const isValidLocation = (plateau: Plateau, position: Position): boolean => (isValidX(plateau.width, position.x) && isValidY(plateau.height, position.y) ? true : false);
 
-const isValidX = (plateau: Plateau, x: number): boolean => (x >= 0 && x <= plateau.width ? true : false);
+const isValidX = (width: number, x: number): boolean => (x >= 0 && x <= width ? true : false);
 
-const isValidY = (plateau: Plateau, y: number): boolean => (y >= 0 && y <= plateau.height ? true : false);
+const isValidY = (height: number, y: number): boolean => (y >= 0 && y <= height ? true : false);
