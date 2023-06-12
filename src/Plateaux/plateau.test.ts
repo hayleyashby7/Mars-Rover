@@ -48,4 +48,16 @@ describe('Plataeu', () => {
 		//Assert
 		expect(validResult).toBe(false);
 	});
+
+	it('can confirm if a grid location is empty', () => {
+		//Arrange
+		const plateau: Plateau = createPlateau(5, 5);
+		const position: Position = { x: 1, y: 1 };
+
+		//Act
+		const result: boolean = isLocationEmpty(plateau, position);
+
+		//Assert
+		expect(result).toBe(true);
+	});
 });
