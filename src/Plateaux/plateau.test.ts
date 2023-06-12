@@ -83,11 +83,12 @@ describe('Plataeu', () => {
 
 		//Act
 		occupyLocation(plateau, position);
-		const occupied: boolean = isLocationEmpty(plateau, position);
-		const secondOccupy = occupyLocation(plateau, position);
+		const empty: boolean = isLocationEmpty(plateau, position);
 
 		//Assert
-		expect(occupied).toBe(true);
-		expect(secondOccupy).toThrowError();
+		expect(empty).toBe(false);
+		expect(() => {
+			occupyLocation(plateau, position);
+		}).toThrow('Location is not empty');
 	});
 });
