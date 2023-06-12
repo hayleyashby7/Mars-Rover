@@ -60,4 +60,19 @@ describe('Plataeu', () => {
 		//Assert
 		expect(result).toBe(true);
 	});
+
+	it('a grid location can be occupied', () => {
+		//Arrange
+		const plateau: Plateau = createPlateau(5, 5);
+		const position: Position = { x: 1, y: 1 };
+		const resultBefore: boolean = isLocationEmpty(plateau, position);
+
+		//Act
+		occupyLocation(plateau, position);
+		const resultAfter: boolean = isLocationEmpty(plateau, position);
+
+		//Assert
+		expect(resultBefore).toBe(true);
+		expect(resultAfter).toBe(false);
+	});
 });
