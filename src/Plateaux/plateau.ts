@@ -22,7 +22,7 @@ export const isLocationEmpty = (plateau: Plateau, position: Position): boolean =
 	if (!plateau.grid) return false;
 
 	const isEmpty: boolean = plateau.grid[position.x][position.y].occupied ? false : true;
-	
+
 	return isEmpty;
 };
 
@@ -31,4 +31,10 @@ const generateGrid = (height: number, width: number): Cell[][] | null => {
 
 	const grid: Cell[][] = [...Array(width)].map((_, x) => [...Array(height)].map((_, y) => ({ x, y, occupied: false })));
 	return grid;
+};
+
+export const occupyLocation = (plateau: Plateau, position: Position): void => {
+	if (!plateau.grid) return;
+
+	plateau.grid[position.x][position.y].occupied = true;
 };

@@ -1,5 +1,5 @@
 import { Plateau } from './plateau.d';
-import { createPlateau, isValidLocation, isLocationEmpty } from './plateau';
+import { createPlateau, isValidLocation, isLocationEmpty, occupyLocation } from './plateau';
 import { Position } from '../utils/position';
 describe('Plataeu', () => {
 	it('can be created', () => {
@@ -75,4 +75,5 @@ describe('Plataeu', () => {
 		expect(resultBefore).toBe(true);
 		expect(resultAfter).toBe(false);
 	});
+
 });
