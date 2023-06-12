@@ -1,6 +1,5 @@
-import Direction from './direction';
-import Position from './position';
-
+import Direction from '../utils/direction';
+import Position from '../utils/position';
 export interface Rover {
 	ID: number;
 	position: Position;

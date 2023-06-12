@@ -1,7 +1,7 @@
 import { Rover } from './rover.d';
 import { changePosition, createRover, changeDirection } from './rover';
-import { Direction } from './direction';
-import { Position } from './position';
+import { Direction } from '../utils/direction';
+import { Position } from '../utils/position';
 
 describe('Create Rover', () => {
 	it('can be created', () => {
