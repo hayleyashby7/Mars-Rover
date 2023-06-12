@@ -36,4 +36,16 @@ describe('Plataeu', () => {
 		//Assert
 		expect(validResult).toBe(true);
 	});
+
+	it('can confirm if a grid location is invalid', () => {
+		//Arrange
+		const plateau: Plateau = createPlateau(5, 5);
+		const position: Position = { x: 6, y: 6 };
+
+		//Act
+		const validResult: boolean = isValidLocation(plateau, position);
+
+		//Assert
+		expect(validResult).toBe(false);
+	});
 });
