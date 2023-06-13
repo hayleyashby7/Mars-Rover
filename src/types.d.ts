@@ -1,10 +1,14 @@
 import Direction from '../utils/direction';
 import Position from '../utils/position';
 
-export interface Rover {
+interface Vehicle {
 	ID: number;
 	position: Position;
 	direction: Direction;
+	changePosition: (vehicle: Vehicle, newPosition: Position) => Vehicle;
+	changeDirection: (vehicle: Vehicle, newDirection: string) => Vehicle;
+}
+export interface Rover extends Vehicle {
 	changePosition: (rover: Rover, newPosition: Position) => Rover;
 	changeDirection: (rover: Rover, newDirection: string) => Rover;
 }
