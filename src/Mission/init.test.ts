@@ -1,3 +1,5 @@
+import { initialiseMission } from './init';
+
 describe('Initialise Mission', () => {
 	it('should initialise a new mission', () => {
 		// Act
