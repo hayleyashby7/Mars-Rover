@@ -17,4 +17,12 @@ describe('Initialise Mission', () => {
 		// Assert
 		expect(mission.plateau).toBeDefined();
 	});
+
+	it('should initialise a mission with an vehicles array', () => {
+		// Act
+		const mission: Mission = initialiseMission();
+
+		// Assert
+		expect(mission.vehicles).toBeDefined();
+	});
 });
