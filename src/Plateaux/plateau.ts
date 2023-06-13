@@ -1,4 +1,4 @@
-import { Plateau, Cell } from './plateau.d';
+import { Plateau, Cell } from '../types';
 import { Position } from '../utils/position';
 
 export const createPlateau = (height: number = 0, width: number = 0): Plateau => {

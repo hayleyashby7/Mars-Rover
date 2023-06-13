@@ -1,4 +1,4 @@
-import { Rover } from './rover.d';
+import { Rover } from '../types';
 import { changePosition, createRover, changeDirection } from './rover';
 import { Direction } from '../utils/direction';
 import { Position } from '../utils/position';

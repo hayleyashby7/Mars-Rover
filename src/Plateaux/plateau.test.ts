@@ -1,4 +1,4 @@
-import { Plateau } from './plateau.d';
+import { Plateau } from '../types';
 import { createPlateau, isValidLocation, isLocationEmpty, occupyLocation } from './plateau';
 import { Position } from '../utils/position';
 describe('Plataeu', () => {
