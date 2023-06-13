@@ -31,3 +31,8 @@ export interface Mission {
 	plateau: Plateau;
 	vehicles: Vehicle[];
 }
+
+export interface Input {
+    plateauHeight: number;
+    plateauWidth: number;
+}
