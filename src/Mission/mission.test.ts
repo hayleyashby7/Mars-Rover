@@ -1,7 +1,7 @@
-import { initialiseMission } from './init';
+import { runMission } from './mission';
 
 describe('Mission', () => {
-	it('should take input values and initialise a mission', () => {
+	it('should take input values and run a mission', () => {
 		// Arrange
 		const testInput: string = `5 5\n1 2 N\nLMLMLMLMM\n3 3 E\nMMRMMRMRRM`;
 
@@ -10,6 +10,5 @@ describe('Mission', () => {
 
 		// Assert
 		expect(result).toBeTruthy();
-		expect(initialiseMission).toHaveBeenCalled();
 	});
 });
