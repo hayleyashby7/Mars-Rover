@@ -44,8 +44,8 @@ describe('Create Rover', () => {
 		const result: Rover = createRover();
 
 		// Assert
-		expect(result.position).toBeDefined();
-		expect(result.position).toEqual(expectedPosition);
+		expect(result.Position).toBeDefined();
+		expect(result.Position).toEqual(expectedPosition);
 	});
 
 	it('has a direction', () => {
@@ -56,8 +56,8 @@ describe('Create Rover', () => {
 		const result: Rover = createRover();
 
 		// Assert
-		expect(result.direction).toBeDefined();
-		expect(result.direction).toEqual(expectedDirection);
+		expect(result.Direction).toBeDefined();
+		expect(result.Direction).toEqual(expectedDirection);
 	});
 });
 
@@ -71,20 +71,20 @@ describe('Change Direction', () => {
 		const redirectedRover = changeDirection(rover, 'E');
 
 		// Assert
-		expect(redirectedRover.direction).toEqual(expectedDirection);
+		expect(redirectedRover.Direction).toEqual(expectedDirection);
 	});
 
 	it('can only change to a valid direction', () => {
 		// Arrange
 		const rover: Rover = createRover();
-		const expectedDirection: Direction = rover.direction;
+		const expectedDirection: Direction = rover.Direction;
 
 		// Act
 		const redirectedRover = changeDirection(rover, 'X');
 
 		// Assert
-		expect(redirectedRover.direction).toEqual(expectedDirection);
-		expect(redirectedRover.direction).not.toEqual('X');
+		expect(redirectedRover.Direction).toEqual(expectedDirection);
+		expect(redirectedRover.Direction).not.toEqual('X');
 	});
 });
 
@@ -98,7 +98,7 @@ describe('Change Position', () => {
 		const movedRover = changePosition(rover, { x: 1, y: 1 });
 
 		// Assert
-		expect(movedRover.position).toEqual(expectedPosition);
+		expect(movedRover.Position).toEqual(expectedPosition);
 	});
 
 	it('cannot change position to a negative value', () => {
@@ -110,6 +110,6 @@ describe('Change Position', () => {
 		const movedRover = changePosition(rover, { x: -1, y: -1 });
 
 		// Assert
-		expect(movedRover.position).toEqual(expectedPosition);
+		expect(movedRover.Position).toEqual(expectedPosition);
 	});
 });

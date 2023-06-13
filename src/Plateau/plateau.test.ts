@@ -19,10 +19,10 @@ describe('Plataeu', () => {
 		const result: Plateau = createPlateau(expectedHeight, expectedWidth);
 
 		//Assert
-		expect(result.height).toBeDefined();
-		expect(result.height).toEqual(expectedHeight);
-		expect(result.width).toBeDefined();
-		expect(result.width).toEqual(expectedWidth);
+		expect(result.Height).toBeDefined();
+		expect(result.Height).toEqual(expectedHeight);
+		expect(result.Width).toBeDefined();
+		expect(result.Width).toEqual(expectedWidth);
 	});
 
 	it('can confirm if a grid location is valid', () => {

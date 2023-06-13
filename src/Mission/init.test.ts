@@ -16,15 +16,15 @@ describe('Initialise Mission', () => {
 		const mission: Mission = initialiseMission();
 
 		// Assert
-		expect(mission.plateau).toBeDefined();
+		expect(mission.Plateau).toBeDefined();
 	});
 
-	it('should initialise a mission with an vehicles array', () => {
+	it('should initialise a mission with a vehicles array', () => {
 		// Act
 		const mission: Mission = initialiseMission();
 
 		// Assert
-		expect(mission.vehicles).toBeDefined();
+		expect(mission.Vehicles).toBeDefined();
 	});
 
 	it('should use input to determine the size of the plateau', () => {
@@ -37,8 +37,8 @@ describe('Initialise Mission', () => {
 		const mission: Mission = initialiseMission(testInput);
 
 		// Assert
-		expect(mission.plateau.height).toBe(expectedPlateauHeight);
-		expect(mission.plateau.width).toBe(expectedPlateauWidth);
+		expect(mission.Plateau.Height).toBe(expectedPlateauHeight);
+		expect(mission.Plateau.Width).toBe(expectedPlateauWidth);
 	});
 
 	it('should use input to determine the number of rovers', () => {
@@ -50,6 +50,6 @@ describe('Initialise Mission', () => {
 		const mission: Mission = initialiseMission(testInput);
 
 		// Assert
-		expect(mission.vehicles.length).toBe(expectedNumberOfRovers);
+		expect(mission.Vehicles.length).toBe(expectedNumberOfRovers);
 	});
 });

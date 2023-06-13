@@ -3,8 +3,8 @@ import Position from '../utils/position';
 
 interface Vehicle {
 	readonly ID: number;
-	position: Position;
-	direction: Direction;
+	Position: Position;
+	Direction: Direction;
 	changePosition: (vehicle: Vehicle, newPosition: Position) => Vehicle;
 	changeDirection: (vehicle: Vehicle, newDirection: string) => Vehicle;
 }
@@ -14,9 +14,9 @@ export interface Rover extends Vehicle {
 }
 
 export interface Plateau {
-	height: number;
-	width: number;
-	grid: Cell[][] | null;
+	Height: number;
+	Width: number;
+	Grid: Cell[][] | null;
 	isValidLocation: (plateau: Plateau, position: Position) => boolean;
 	isLocationEmpty: (plateau: Plateau, position: Position) => boolean;
 }
@@ -24,15 +24,16 @@ export interface Plateau {
 export interface Cell {
 	x: number;
 	y: number;
-	occupied: boolean;
+	Occupied: boolean;
 }
 
 export interface Mission {
-	plateau: Plateau;
-	vehicles: Vehicle[];
+	Plateau: Plateau;
+	Vehicles: Vehicle[];
 }
 
 export interface Input {
-    plateauHeight: number;
-    plateauWidth: number;
+	PlateauHeight: number;
+	PlateauWidth: number;
+	NumberOfVehicles: number;
 }
