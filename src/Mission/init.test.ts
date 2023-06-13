@@ -38,4 +38,18 @@ describe('Initialise Mission', () => {
 		expect(mission.vehicles.length).toBe(1);
 		expect(mission.vehicles[0]).toMatchObject(expectedVehicle);
 	});
+
+	it('should use input to determine the size of the plateau', () => {
+		// Arrange
+		const expectedPlateauHeight: number = 6;
+		const expectedPlateauWidth: number = 6;
+		const testInput: string = `5 5\n1 2 N\nLMLMLMLMM\n3 3 E\nMMRMMRMRRM`;
+
+		// Act
+		const mission: Mission = initialiseMission(testInput);
+
+		// Assert
+		expect(mission.plateau.height).toBe(expectedPlateauHeight);
+		expect(mission.plateau.width).toBe(expectedPlateauWidth);
+	});
 });
