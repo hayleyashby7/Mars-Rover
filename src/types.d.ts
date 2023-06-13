@@ -2,7 +2,7 @@ import Direction from '../utils/direction';
 import Position from '../utils/position';
 
 interface Vehicle {
-	ID: number;
+	readonly ID: number;
 	position: Position;
 	direction: Direction;
 	changePosition: (vehicle: Vehicle, newPosition: Position) => Vehicle;
