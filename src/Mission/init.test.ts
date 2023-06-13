@@ -1,11 +1,20 @@
+import { Mission } from '../types';
 import { initialiseMission } from './init';
 
 describe('Initialise Mission', () => {
 	it('should initialise a new mission', () => {
 		// Act
-		const mission = initialiseMission();
+		const mission: Mission = initialiseMission();
 
 		// Assert
 		expect(mission).toBeDefined();
+	});
+
+	it('should initialise a mission with a plateau', () => {
+		// Act
+		const mission: Mission = initialiseMission();
+
+		// Assert
+		expect(mission.plateau).toBeDefined();
 	});
 });
