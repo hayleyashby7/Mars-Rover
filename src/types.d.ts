@@ -26,3 +26,8 @@ export interface Cell {
 	y: number;
 	occupied: boolean;
 }
+
+export interface Mission {
+	plateau: Plateau;
+	vehicles: Vehicle[];
+}
