@@ -24,7 +24,7 @@ describe('Mission', () => {
 		performRoverMoves(rover, moves);
 
 		// Assert
-		expect(rover.Position).toBe(expectedEndPosition);
-		expect(rover.Direction).toBe(expectedEndDirection);
+		expect(rover.Position).toEqual(expectedEndPosition);
+		expect(rover.Direction).toEqual(expectedEndDirection);
 	});
 });
