@@ -201,4 +201,18 @@ describe('Move Rover', () => {
 		// Assert
 		expect(rover.Direction).toEqual(expectedDirection);
 	});
+
+	it('cannot turn to an invalid direction', () => {
+		// Arrange
+		const rover: Rover = createRover();
+		const expectedDirection: Direction = rover.Direction;
+
+		// Act
+		rover.move('X');
+
+		// Assert
+		expect(rover.Direction).toEqual(expectedDirection);
+		expect(rover.Direction).not.toEqual('X');
+	});
+
 });
