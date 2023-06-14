@@ -52,4 +52,15 @@ describe('Initialise Mission', () => {
 		// Assert
 		expect(mission.Vehicles.length).toBe(expectedNumberOfRovers);
 	});
+
+	it('should give all rovers a unique ID', () => {
+		// Arrange
+		const testInput: string = `5 5\n1 2 N\nLMLMLMLMM\n3 3 E\nMMRMMRMRRM`;
+
+		// Act
+		const mission: Mission = initialiseMission(testInput);
+
+		// Assert
+		expect(mission.Vehicles[0].ID).not.toBe(mission.Vehicles[1].ID);
+	});
 });
