@@ -1,7 +1,7 @@
 import { Rover } from '../types';
 import { isDirection, Direction } from '../utils/direction';
 import { Position, isValidPosition } from '../utils/position';
-import { Move, isMove, moveForward } from '../utils/move';
+import { Move, isMove, moveForward, turnLeft } from '../utils/move';
 
 export const createRover = (id: number = 0): Rover => {
 	const newRover: Rover = { ID: id, Position: { x: 0, y: 0 }, Direction: 'N', changePosition: changePosition, changeDirection: changeDirection };
@@ -28,6 +28,9 @@ export const moveRover = (rover: Rover, move: string): Rover => {
 	switch (move) {
 		case 'M' as Move:
 			return changePosition(rover, moveForward(rover.Direction, rover.Position));
+
+		case 'L' as Move:
+			return changeDirection(rover, turnLeft(rover.Direction));
 
 		default:
 			return rover;

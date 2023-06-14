@@ -19,3 +19,17 @@ export const moveForward = (direction: Direction, position: Position): Position 
 			return { x: position.x - 1, y: position.y };
 	}
 };
+
+export const turnLeft = (direction: Direction): Direction => {
+    switch (direction) {
+        case 'N':
+            return 'W';
+        case 'E':
+            return 'N';
+        case 'S':
+            return 'E';
+        case 'W':
+            return 'S';
+    }
+};
+
