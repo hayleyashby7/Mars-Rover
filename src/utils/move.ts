@@ -33,3 +33,16 @@ export const turnLeft = (direction: Direction): Direction => {
     }
 };
 
+export const turnRight = (direction: Direction): Direction => {
+    switch (direction) {
+        case 'N':
+            return 'E';
+        case 'E':
+            return 'S';
+        case 'S':
+            return 'W';
+        case 'W':
+            return 'N';
+    }
+}
+
