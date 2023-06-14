@@ -1,5 +1,5 @@
 import { createRover } from '../Rover/rover';
-import { Mission, Rover } from '../types';
+import { Input, Mission, Rover } from '../types';
 import { initialiseMission } from './init';
 
 describe('Initialise Mission', () => {
@@ -31,7 +31,11 @@ describe('Initialise Mission', () => {
 		// Arrange
 		const expectedPlateauHeight: number = 5;
 		const expectedPlateauWidth: number = 5;
-		const testInput: string = `5 5\n1 2 N\nLMLMLMLMM\n3 3 E\nMMRMMRMRRM`;
+		const testInput: Input = {
+			PlateauHeight: 5,
+			PlateauWidth: 5,
+			NumberOfVehicles: 0,
+		};
 
 		// Act
 		const mission: Mission = initialiseMission(testInput);
@@ -44,7 +48,11 @@ describe('Initialise Mission', () => {
 	it('should use input to determine the number of rovers', () => {
 		// Arrange
 		const expectedNumberOfRovers: number = 2;
-		const testInput: string = `5 5\n1 2 N\nLMLMLMLMM\n3 3 E\nMMRMMRMRRM`;
+		const testInput: Input = {
+			PlateauHeight: 5,
+			PlateauWidth: 5,
+			NumberOfVehicles: 2,
+		};
 
 		// Act
 		const mission: Mission = initialiseMission(testInput);
@@ -55,7 +63,11 @@ describe('Initialise Mission', () => {
 
 	it('should give all rovers a unique ID', () => {
 		// Arrange
-		const testInput: string = `5 5\n1 2 N\nLMLMLMLMM\n3 3 E\nMMRMMRMRRM`;
+		const testInput: Input = {
+			PlateauHeight: 5,
+			PlateauWidth: 5,
+			NumberOfVehicles: 2,
+		};
 
 		// Act
 		const mission: Mission = initialiseMission(testInput);

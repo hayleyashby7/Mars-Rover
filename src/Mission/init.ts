@@ -1,17 +1,14 @@
 import { Mission, Input, Vehicle } from '../types.d';
 import { createRover } from '../Rover/rover';
 import { createPlateau } from '../Plateau/plateau';
-import { parseInput } from '../utils/input';
 
-export const initialiseMission = (input: string = ''): Mission => {
-	if (input === '') {
+export const initialiseMission = (input: Input | void): Mission => {
+	if (!input) {
 		return { Plateau: createPlateau(), Vehicles: [createRover()] };
 	}
 
-	const parsedInput: Input = parseInput(input);
-
-	const plateau = createPlateau(parsedInput.PlateauHeight, parsedInput.PlateauWidth);
-	const vehicles: Vehicle[] = generateVehicles(parsedInput.NumberOfVehicles);
+	const plateau = createPlateau(input.PlateauHeight, input.PlateauWidth);
+	const vehicles: Vehicle[] = generateVehicles(input.NumberOfVehicles);
 
 	const mission: Mission = { Plateau: plateau, Vehicles: vehicles };
 
