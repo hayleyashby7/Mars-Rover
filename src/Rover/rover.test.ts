@@ -214,16 +214,4 @@ describe('Move Rover', () => {
 		expect(rover.Direction).toEqual(expectedDirection);
 		expect(rover.Direction).not.toEqual('X');
 	});
-
-	it('cannot move off the plateau', () => {
-		// Arrange
-		const rover: Rover = createRover(0, { x: 5, y: 5 }, 'N');
-		const expectedPosition: Position = { x: 5, y: 5 };
-
-		// Act
-		rover.move('M');
-
-		// Assert
-		expect(rover.Position).toEqual(expectedPosition);
-	});
 });

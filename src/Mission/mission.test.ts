@@ -1,5 +1,7 @@
 import { runMission, performRoverMoves } from './mission';
 import { createRover, Rover } from '../Rover/rover';
+import { Direction } from '../utils/direction';
+import { Position } from '../utils/position';
 
 describe('Mission', () => {
 	it('should take input values and run a mission', () => {
@@ -17,14 +19,14 @@ describe('Mission', () => {
 		// Arrange
 		const moves: string = `LMLMLMLMM`;
 		const rover: Rover = createRover(1, { x: 1, y: 2 }, 'N');
-		const expectedEndPosition = { x: 1, y: 3 };
-		const expectedEndDirection = 'N';
+		const expectedEndPosition: Position = { x: 1, y: 3 };
+		const expectedEndDirection: Direction = 'N';
 
 		// Act
 		performRoverMoves(rover, moves);
 
 		// Assert
-		expect(rover.Position).toEqual(expectedEndPosition);
+		expect(rover.Position).toEqual(expectedEndPosition );
 		expect(rover.Direction).toEqual(expectedEndDirection);
 	});
 
@@ -50,5 +52,20 @@ describe('Mission', () => {
 
 		// Assert
 		expect(result).toMatch(expectedOutput);
+	});
+
+	it('will not perform moves that will take a rover beyond the plateau bounds', () => {
+		// Arrange
+		const moves: string = `LM`;
+		const rover: Rover = createRover(0, { x: 5, y: 5 }, 'W');
+		const expectedEndPosition: Position = { x: 5, y: 5 };
+		const expectedEndDirection: Direction = 'N';
+
+		// Act
+		performRoverMoves(rover, moves);
+
+		// Assert
+		expect(rover.Position).toEqual(expectedEndPosition);
+		expect(rover.Direction).toEqual(expectedEndDirection);
 	});
 });
