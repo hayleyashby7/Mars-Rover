@@ -154,4 +154,18 @@ describe('Move Rover', () => {
 		// Assert
 		expect(movedRover.Position).toEqual(expectedPosition);
 	});
+
+	it('can move forward to the South', () => {
+		// Arrange
+		const rover: Rover = createRover();
+		const facingSouth: Rover = changeDirection(changePosition(rover, { x: 2, y: 2 }), 'S');
+
+		const expectedPosition: Position = { x: 2, y: 1 };
+
+		// Act
+		const movedRover = moveRover(facingSouth, 'M');
+
+		// Assert
+		expect(movedRover.Position).toEqual(expectedPosition);
+	});
 });
