@@ -27,4 +27,16 @@ describe('Mission', () => {
 		expect(rover.Position).toEqual(expectedEndPosition);
 		expect(rover.Direction).toEqual(expectedEndDirection);
 	});
+
+	it('should take input, run a mission and provide correct final output for a single rover', () => { 
+		// Arrange
+		const testInput: string = `5 5\n1 2 N\nLMLMLMLMM`;
+		const expectedOutput: string = `1 3 N`;
+
+		// Act
+		const result: string = runMission(testInput);
+
+		// Assert
+		expect(result).toMatch(expectedOutput);
+	});
 });
