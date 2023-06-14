@@ -194,4 +194,16 @@ describe('Move Rover', () => {
 		// Assert
 		expect(turnedRover.Direction).toEqual(expectedDirection);
 	});
+
+	it('can turn right', () => {
+		// Arrange
+		const rover: Rover = createRover();
+		const expectedDirection: Direction = 'E';
+
+		// Act
+		const turnedRover = moveRover(rover, 'R');
+
+		// Assert
+		expect(turnedRover.Direction).toEqual(expectedDirection);
+	});
 });
