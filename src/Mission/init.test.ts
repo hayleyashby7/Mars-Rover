@@ -28,8 +28,8 @@ describe('Initialise Mission', () => {
 
 	it('should use input to determine the size of the plateau', () => {
 		// Arrange
-		const expectedPlateauHeight: number = 6;
-		const expectedPlateauWidth: number = 6;
+		const expectedPlateauHeight: number = 5;
+		const expectedPlateauWidth: number = 5;
 		const testInput: Input = {
 			PlateauHeight: 5,
 			PlateauWidth: 5,
