@@ -1,7 +1,6 @@
 import Direction from '../utils/direction';
 import Position from '../utils/position';
-
-interface Vehicle {
+export interface Vehicle {
 	readonly ID: number;
 	Position: Position;
 	Direction: Direction;
