@@ -3,7 +3,7 @@ import { createRover, Rover } from '../Rover/rover';
 import { Direction } from '../utils/direction';
 import { Position } from '../utils/position';
 import { Plateau } from '../types';
-import { createPlateau } from '../Plateau/plateau';
+import { createPlateau, occupyLocation } from '../Plateau/plateau';
 
 describe('Mission', () => {
 	it('should take input values and run a mission', () => {
@@ -59,16 +59,20 @@ describe('Mission', () => {
 
 	it('will not perform moves that will take a rover beyond the plateau bounds', () => {
 		// Arrange
-		const moves: string = `LM`;
-		const rover: Rover = createRover(0, { x: 4, y: 4 }, 'W');
-		const plateau: Plateau = createPlateau(5, 5);
-		const expectedEndPosition: Position = { x: 4, y: 4 };
+		const moves: string = `RM`;
+		const rover: Rover = createRover(0, { x: 4, y: 5 }, 'W');
+		const plateau: Plateau = createPlateau(6, 6);		
+		const expectedEndPosition: Position = { x: 4, y: 5 };
 		const expectedEndDirection: Direction = 'N';
 
 		// Act
-		performRoverMoves(plateau, rover, moves);
+		occupyLocation(plateau, rover.Position);
 
 		// Assert
+		expect(() => {
+			performRoverMoves(plateau, rover, moves);
+		}).toThrow(`Move M would send rover off plateau!`);
+
 		expect(rover.Position).toEqual(expectedEndPosition);
 		expect(rover.Direction).toEqual(expectedEndDirection);
 	});

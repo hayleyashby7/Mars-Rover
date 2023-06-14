@@ -14,9 +14,9 @@ export const createPlateau = (height: number = 0, width: number = 0): Plateau =>
 
 export const isValidLocation = (plateau: Plateau, position: Position): boolean => (isValidX(plateau.Width, position.x) && isValidY(plateau.Height, position.y) ? true : false);
 
-const isValidX = (width: number, x: number): boolean => (x >= 0 && x <= width ? true : false);
+const isValidX = (width: number, x: number): boolean => (x >= 0 && x < width ? true : false);
 
-const isValidY = (height: number, y: number): boolean => (y >= 0 && y <= height ? true : false);
+const isValidY = (height: number, y: number): boolean => (y >= 0 && y < height ? true : false);
 
 export const isLocationEmpty = (plateau: Plateau, position: Position): boolean => {
 	if (!plateau.Grid) return false;
