@@ -1,5 +1,4 @@
-import { createRover } from '../Rover/rover';
-import { Input, Mission, Rover } from '../types';
+import { Input, Mission } from '../types';
 import { initialiseMission } from './init';
 
 describe('Initialise Mission', () => {

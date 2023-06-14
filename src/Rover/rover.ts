@@ -1,41 +1,48 @@
-import { Rover } from '../types';
+import { Vehicle } from '../types.d';
 import { isDirection, Direction } from '../utils/direction';
 import { Position, isValidPosition } from '../utils/position';
 import { Move, isMove, moveForward, turnLeft, turnRight } from '../utils/move';
 
-export const createRover = (id: number = 0): Rover => {
-	const newRover: Rover = { ID: id, Position: { x: 0, y: 0 }, Direction: 'N', changePosition: changePosition, changeDirection: changeDirection };
+export class Rover implements Vehicle {
+	readonly ID: number;
+	Position: Position;
+	Direction: Direction;
 
-	return newRover;
-};
-
-export const changePosition = (rover: Rover, newPosition: Position): Rover => {
-	isValidPosition(newPosition) ? (rover.Position = newPosition) : null;
-	return rover;
-};
-
-export const changeDirection = (rover: Rover, newDirection: string): Rover => {
-	isDirection(newDirection) ? (rover.Direction = newDirection as Direction) : null;
-	return rover;
-};
-
-export const moveRover = (rover: Rover, move: string): Rover => {
-	if (!isMove(move)) {
-		console.log(`Invalid move: ${move}`);
-		return rover;
+	constructor(id: number = 0, position: Position = { x: 0, y: 0 }, direction: Direction = 'N') {
+		this.ID = id;
+		this.Position = position;
+		this.Direction = direction;
 	}
 
-	switch (move) {
-		case 'M' as Move:
-			return changePosition(rover, moveForward(rover.Direction, rover.Position));
+	changePosition = (newPosition: Position): Rover => {
+		isValidPosition(newPosition) ? (this.Position = newPosition) : null;
+		return this;
+	};
+	changeDirection = (newDirection: string): Rover => {
+		isDirection(newDirection) ? (this.Direction = newDirection as Direction) : null;
+		return this;
+	};
 
-		case 'L' as Move:
-			return changeDirection(rover, turnLeft(rover.Direction));
+	move = (move: string): Rover => {
+		if (!isMove(move)) {
+			console.log(`Invalid move: ${move}`);
+			return this;
+		}
 
-		case 'R' as Move:
-			return changeDirection(rover, turnRight(rover.Direction));
+		switch (move) {
+			case 'M' as Move:
+				return this.changePosition(moveForward(this.Direction, this.Position));
 
-		default:
-			return rover;
-	}
-};
+			case 'L' as Move:
+				return this.changeDirection(turnLeft(this.Direction));
+
+			case 'R' as Move:
+				return this.changeDirection(turnRight(this.Direction));
+
+			default:
+				return this;
+		}
+	};
+}
+
+export const createRover = (id: number = 0, position: Position = { x: 0, y: 0 }, direction: Direction = 'N'): Rover => new Rover(id, position, direction);

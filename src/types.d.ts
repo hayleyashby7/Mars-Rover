@@ -5,12 +5,9 @@ interface Vehicle {
 	readonly ID: number;
 	Position: Position;
 	Direction: Direction;
-	changePosition: (vehicle: Vehicle, newPosition: Position) => Vehicle;
-	changeDirection: (vehicle: Vehicle, newDirection: string) => Vehicle;
-}
-export interface Rover extends Vehicle {
-	changePosition: (rover: Rover, newPosition: Position) => Rover;
-	changeDirection: (rover: Rover, newDirection: string) => Rover;
+	changePosition: (newPosition: Position) => Vehicle;
+	changeDirection: (newDirection: string) => Vehicle;
+	move: (move: string) => Vehicle;
 }
 
 export interface Plateau {

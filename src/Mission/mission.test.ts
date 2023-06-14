@@ -1,4 +1,3 @@
-import { Position } from '../utils/position';
 import { runMission } from './mission';
 
 describe('Mission', () => {

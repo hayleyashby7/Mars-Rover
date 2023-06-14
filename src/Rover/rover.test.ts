@@ -1,5 +1,4 @@
-import { Rover } from '../types';
-import { changePosition, createRover, changeDirection, moveRover } from './rover';
+import { Rover, createRover} from './rover';
 import { Direction } from '../utils/direction';
 import { Position } from '../utils/position';
 
@@ -68,10 +67,10 @@ describe('Change Direction', () => {
 		const expectedDirection: Direction = 'E';
 
 		// Act
-		const redirectedRover = changeDirection(rover, 'E');
+		rover.changeDirection('E');
 
 		// Assert
-		expect(redirectedRover.Direction).toEqual(expectedDirection);
+		expect(rover.Direction).toEqual(expectedDirection);
 	});
 
 	it('can only change to a valid direction', () => {
@@ -80,11 +79,11 @@ describe('Change Direction', () => {
 		const expectedDirection: Direction = rover.Direction;
 
 		// Act
-		const redirectedRover = changeDirection(rover, 'X');
+		rover.changeDirection( 'X');
 
 		// Assert
-		expect(redirectedRover.Direction).toEqual(expectedDirection);
-		expect(redirectedRover.Direction).not.toEqual('X');
+		expect(rover.Direction).toEqual(expectedDirection);
+		expect(rover.Direction).not.toEqual('X');
 	});
 });
 
@@ -95,10 +94,10 @@ describe('Change Position', () => {
 		const expectedPosition: Position = { x: 1, y: 1 };
 
 		// Act
-		const movedRover = changePosition(rover, { x: 1, y: 1 });
+		rover.changePosition({ x: 1, y: 1 });
 
 		// Assert
-		expect(movedRover.Position).toEqual(expectedPosition);
+		expect(rover.Position).toEqual(expectedPosition);
 	});
 
 	it('cannot change position to a negative value', () => {
@@ -107,10 +106,10 @@ describe('Change Position', () => {
 		const expectedPosition: Position = { x: 0, y: 0 };
 
 		// Act
-		const movedRover = changePosition(rover, { x: -1, y: -1 });
+		rover.changePosition( { x: -1, y: -1 });
 
 		// Assert
-		expect(movedRover.Position).toEqual(expectedPosition);
+		expect(rover.Position).toEqual(expectedPosition);
 	});
 });
 
@@ -122,10 +121,10 @@ describe('Move Rover', () => {
 		const expectedPosition: Position = { x: 0, y: 1 };
 
 		// Act
-		const movedRover = moveRover(rover, 'M');
+		rover.move('M');
 
 		// Assert
-		expect(movedRover.Position).toEqual(expectedPosition);
+		expect(rover.Position).toEqual(expectedPosition);
 	});
 
 	it('can move forward to the North', () => {
@@ -135,52 +134,48 @@ describe('Move Rover', () => {
 		const expectedPosition: Position = { x: 0, y: 1 };
 
 		// Act
-		const movedRover = moveRover(rover, 'M');
+		rover.move('M');
 
 		// Assert
-		expect(movedRover.Position).toEqual(expectedPosition);
+		expect(rover.Position).toEqual(expectedPosition);
 	});
 
 	it('can move forward to the East', () => {
 		// Arrange
-		const rover: Rover = createRover();
-		const facingEast: Rover = changeDirection(rover, 'E');
-
+		const rover: Rover = createRover(0, { x: 0, y: 0 }, 'E');
 		const expectedPosition: Position = { x: 1, y: 0 };
 
 		// Act
-		const movedRover = moveRover(facingEast, 'M');
+		rover.move('M');
 
 		// Assert
-		expect(movedRover.Position).toEqual(expectedPosition);
+		expect(rover.Position).toEqual(expectedPosition);
 	});
 
 	it('can move forward to the South', () => {
 		// Arrange
-		const rover: Rover = createRover();
-		const facingSouth: Rover = changeDirection(changePosition(rover, { x: 2, y: 2 }), 'S');
+		const rover: Rover = createRover(0, { x: 2, y: 2 }, 'S');
 
 		const expectedPosition: Position = { x: 2, y: 1 };
 
 		// Act
-		const movedRover = moveRover(facingSouth, 'M');
+		rover.move('M');
 
 		// Assert
-		expect(movedRover.Position).toEqual(expectedPosition);
+		expect(rover.Position).toEqual(expectedPosition);
 	});
 
 	it('can move forward to the West', () => {
 		// Arrange
-		const rover: Rover = createRover();
-		const facingWest: Rover = changeDirection(changePosition(rover, { x: 2, y: 2 }), 'W');
+		const rover: Rover = createRover(0, { x: 2, y: 2 }, 'W');
 
 		const expectedPosition: Position = { x: 1, y: 2 };
 
 		// Act
-		const movedRover = moveRover(facingWest, 'M');
+		rover.move('M');
 
 		// Assert
-		expect(movedRover.Position).toEqual(expectedPosition);
+		expect(rover.Position).toEqual(expectedPosition);
 	});
 
 	it('can turn left', () => {
@@ -189,10 +184,10 @@ describe('Move Rover', () => {
 		const expectedDirection: Direction = 'W';
 
 		// Act
-		const turnedRover = moveRover(rover, 'L');
+		rover.move('L');
 
 		// Assert
-		expect(turnedRover.Direction).toEqual(expectedDirection);
+		expect(rover.Direction).toEqual(expectedDirection);
 	});
 
 	it('can turn right', () => {
@@ -201,9 +196,9 @@ describe('Move Rover', () => {
 		const expectedDirection: Direction = 'E';
 
 		// Act
-		const turnedRover = moveRover(rover, 'R');
+		rover.move('R');
 
 		// Assert
-		expect(turnedRover.Direction).toEqual(expectedDirection);
+		expect(rover.Direction).toEqual(expectedDirection);
 	});
 });
