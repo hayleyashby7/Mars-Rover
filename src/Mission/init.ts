@@ -21,7 +21,7 @@ export const initialiseMission = (input: string = ''): Mission => {
 const generateVehicles = (totalVehicles: number): Vehicle[] => {
 	const vehicles: Vehicle[] = [];
 	for (let i = 0; i < totalVehicles; i++) {
-		vehicles.push(createRover());
+		vehicles.push(createRover(i));
 	}
 	return vehicles;
 };
