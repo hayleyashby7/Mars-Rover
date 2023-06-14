@@ -1,4 +1,4 @@
-import { Rover, createRover} from './rover';
+import { Rover, createRover } from './rover';
 import { Direction } from '../utils/direction';
 import { Position } from '../utils/position';
 
@@ -79,7 +79,7 @@ describe('Change Direction', () => {
 		const expectedDirection: Direction = rover.Direction;
 
 		// Act
-		rover.changeDirection( 'X');
+		rover.changeDirection('X');
 
 		// Assert
 		expect(rover.Direction).toEqual(expectedDirection);
@@ -106,7 +106,7 @@ describe('Change Position', () => {
 		const expectedPosition: Position = { x: 0, y: 0 };
 
 		// Act
-		rover.changePosition( { x: -1, y: -1 });
+		rover.changePosition({ x: -1, y: -1 });
 
 		// Assert
 		expect(rover.Position).toEqual(expectedPosition);
@@ -215,4 +215,15 @@ describe('Move Rover', () => {
 		expect(rover.Direction).not.toEqual('X');
 	});
 
+	it('cannot move off the plateau', () => {
+		// Arrange
+		const rover: Rover = createRover(0, { x: 5, y: 5 }, 'N');
+		const expectedPosition: Position = { x: 5, y: 5 };
+
+		// Act
+		rover.move('M');
+
+		// Assert
+		expect(rover.Position).toEqual(expectedPosition);
+	});
 });
