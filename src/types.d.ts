@@ -28,8 +28,14 @@ export interface Mission {
 	Vehicles: Vehicle[];
 }
 
+export interface VehicleInput {
+	startingPosition: Position;
+	startingDirection: Direction;
+	moves: string;
+}
+
 export interface Input {
 	PlateauHeight: number;
 	PlateauWidth: number;
-	NumberOfVehicles: number;
+	VehicleInputs: VehicleInput[];
 }

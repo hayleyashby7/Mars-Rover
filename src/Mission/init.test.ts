@@ -33,7 +33,7 @@ describe('Initialise Mission', () => {
 		const testInput: Input = {
 			PlateauHeight: 5,
 			PlateauWidth: 5,
-			NumberOfVehicles: 0,
+			VehicleInputs: [],
 		};
 
 		// Act
@@ -50,7 +50,10 @@ describe('Initialise Mission', () => {
 		const testInput: Input = {
 			PlateauHeight: 5,
 			PlateauWidth: 5,
-			NumberOfVehicles: 2,
+			VehicleInputs: [
+				{ startingPosition: { x: 1, y: 2 }, startingDirection: 'N', moves: 'LMLMLMLMM' },
+				{ startingPosition: { x: 3, y: 3 }, startingDirection: 'E', moves: 'MMRMMRMRRM' },
+			],
 		};
 
 		// Act
@@ -65,7 +68,10 @@ describe('Initialise Mission', () => {
 		const testInput: Input = {
 			PlateauHeight: 5,
 			PlateauWidth: 5,
-			NumberOfVehicles: 2,
+			VehicleInputs: [
+				{ startingPosition: { x: 1, y: 2 }, startingDirection: 'N', moves: 'LMLMLMLMM' },
+				{ startingPosition: { x: 3, y: 3 }, startingDirection: 'E', moves: 'MMRMMRMRRM' },
+			],
 		};
 
 		// Act
