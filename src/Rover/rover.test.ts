@@ -208,7 +208,7 @@ describe('Move Rover', () => {
 		const expectedDirection: Direction = rover.Direction;
 
 		// Act
-		rover.move('X');
+		expect(() => rover.move('X')).toThrowError('Invalid move: X');
 
 		// Assert
 		expect(rover.Direction).toEqual(expectedDirection);

@@ -25,8 +25,7 @@ export class Rover implements Vehicle {
 
 	move = (move: string): Rover => {
 		if (!isMove(move)) {
-			console.log(`Invalid move: ${move}`);
-			return this;
+			throw new Error(`Invalid move: ${move}`);
 		}
 
 		switch (move) {
