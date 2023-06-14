@@ -1,6 +1,7 @@
 import { Plateau } from '../types';
-import { createPlateau, isValidLocation, isLocationEmpty, occupyLocation } from './plateau';
+import { createPlateau, isValidLocation, isLocationEmpty, occupyLocation, vacateLocation } from './plateau';
 import { Position } from '../utils/position';
+
 describe('Plataeu', () => {
 	it('can be created', () => {
 		//Act
@@ -90,5 +91,21 @@ describe('Plataeu', () => {
 		expect(() => {
 			occupyLocation(plateau, position);
 		}).toThrow('Location is not empty');
+	});
+
+	it('a grid location can be vacated', () => {
+		//Arrange
+		const plateau: Plateau = createPlateau(5, 5);
+		const position: Position = { x: 1, y: 1 };
+		occupyLocation(plateau, position);
+		const resultBefore: boolean = isLocationEmpty(plateau, position);
+
+		//Act
+		vacateLocation(plateau, position);
+		const resultAfter: boolean = isLocationEmpty(plateau, position);
+
+		//Assert
+		expect(resultBefore).toBe(false);
+		expect(resultAfter).toBe(true);
 	});
 });
