@@ -17,22 +17,6 @@ describe('Mission', () => {
 		expect(result).toBeTruthy();
 	});
 
-	it('should performs all move inputs for a rover correctly', () => {
-		// Arrange
-		const moves: string = `LMLMLMLMM`;
-		const rover: Rover = createRover(1, { x: 1, y: 2 }, 'N');
-		const plateau: Plateau = createPlateau(5, 5);
-		const expectedEndPosition: Position = { x: 1, y: 3 };
-		const expectedEndDirection: Direction = 'N';
-
-		// Act
-		performRoverMoves(plateau, rover, moves);
-
-		// Assert
-		expect(rover.Position).toEqual(expectedEndPosition);
-		expect(rover.Direction).toEqual(expectedEndDirection);
-	});
-
 	it('should take input, run a mission and provide correct final output for a single rover', () => {
 		// Arrange
 		const testInput: string = `5 5\n1 2 N\nLMLMLMLMM`;
@@ -57,11 +41,26 @@ describe('Mission', () => {
 		expect(result).toMatch(expectedOutput);
 	});
 
+	it('should performs all move inputs for a rover correctly', () => {
+		// Arrange
+		const moves: string = `LMLMLMLMM`;
+		const rover: Rover = createRover(1, { x: 1, y: 2 }, 'N');
+		const plateau: Plateau = createPlateau(5, 5);
+		const expectedEndPosition: Position = { x: 1, y: 3 };
+		const expectedEndDirection: Direction = 'N';
+
+		// Act
+		performRoverMoves(plateau, rover, moves);
+
+		// Assert
+		expect(rover.Position).toEqual(expectedEndPosition);
+		expect(rover.Direction).toEqual(expectedEndDirection);
+	});
 	it('will not perform moves that will take a rover beyond the plateau bounds', () => {
 		// Arrange
 		const moves: string = `RM`;
 		const rover: Rover = createRover(0, { x: 4, y: 5 }, 'W');
-		const plateau: Plateau = createPlateau(6, 6);		
+		const plateau: Plateau = createPlateau(6, 6);
 		const expectedEndPosition: Position = { x: 4, y: 5 };
 		const expectedEndDirection: Direction = 'N';
 
