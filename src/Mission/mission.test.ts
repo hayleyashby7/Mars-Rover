@@ -1,4 +1,5 @@
-import { runMission } from './mission';
+import { runMission, performRoverMoves } from './mission';
+import { createRover, Rover } from '../Rover/rover';
 
 describe('Mission', () => {
 	it('should take input values and run a mission', () => {
@@ -10,5 +11,20 @@ describe('Mission', () => {
 
 		// Assert
 		expect(result).toBeTruthy();
+	});
+
+	it('should performs all move inputs for a rover correctly', () => {
+		// Arrange
+		const moves: string = `LMLMLMLMM`;
+		const rover: Rover = createRover(1, { x: 1, y: 2 }, 'N');
+		const expectedEndPosition = { x: 1, y: 3 };
+		const expectedEndDirection = 'N';
+
+		// Act
+		performRoverMoves(rover, moves);
+
+		// Assert
+		expect(rover.Position).toBe(expectedEndPosition);
+		expect(rover.Direction).toBe(expectedEndDirection);
 	});
 });
