@@ -17,11 +17,11 @@ describe('Mission', () => {
 		expect(result).toBeTruthy();
 	});
 
-	/* it('should performs all move inputs for a rover correctly', () => {
+	it('should performs all move inputs for a rover correctly', () => {
 		// Arrange
 		const moves: string = `LMLMLMLMM`;
 		const rover: Rover = createRover(1, { x: 1, y: 2 }, 'N');
-		const plateau: Plateau = createPlateau(5, 5); 
+		const plateau: Plateau = createPlateau(5, 5);
 		const expectedEndPosition: Position = { x: 1, y: 3 };
 		const expectedEndDirection: Direction = 'N';
 
@@ -71,5 +71,5 @@ describe('Mission', () => {
 		// Assert
 		expect(rover.Position).toEqual(expectedEndPosition);
 		expect(rover.Direction).toEqual(expectedEndDirection);
-	}); */
+	});
 });
