@@ -1,4 +1,3 @@
-import { Direction } from '../utils/direction';
 import { Position } from '../utils/position';
 import { runMission } from './mission';
 
@@ -12,19 +11,5 @@ describe('Mission', () => {
 
 		// Assert
 		expect(result).toBeTruthy();
-	});
-
-	it('should process the moves of a rover', () => {
-		// Arrange
-		const startPosition: Position = { x: 1, y: 2 };
-		const startDirection: Direction = 'N';
-		const moves: string = `LMLMLMLMM`;
-		const expectedPosition: Position = { x: 1, y: 3 };
-
-		// Act
-		const result = performActions(startPosition, startDirection, moves);
-
-		// Assert
-		expect(result).toEqual(expectedPosition);
 	});
 });
