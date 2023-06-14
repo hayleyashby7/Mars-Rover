@@ -7,7 +7,9 @@ export const initialiseMission = (input: Input | void): Mission => {
 		return { Plateau: createPlateau(), Vehicles: [createRover()] };
 	}
 
-	const plateau = createPlateau(input.PlateauHeight, input.PlateauWidth);
+	// Make sure to account for 0 indexing in plateau creation
+	const plateau = createPlateau(input.PlateauHeight + 1, input.PlateauWidth + 1);
+	
 	const vehicles: Vehicle[] = generateVehicles(input.VehicleInputs);
 
 	const mission: Mission = { Plateau: plateau, Vehicles: vehicles };

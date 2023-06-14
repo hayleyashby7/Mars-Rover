@@ -35,7 +35,15 @@ const generateGrid = (height: number, width: number): Cell[][] | null => {
 
 export const occupyLocation = (plateau: Plateau, position: Position): void => {
 	if (!plateau.Grid) return;
+	if (!plateau.isValidLocation(plateau, position)) throw new Error('Location is not valid');
 	if (!plateau.isLocationEmpty(plateau, position)) throw new Error('Location is not empty');
 
 	plateau.Grid[position.x][position.y].Occupied = true;
+};
+
+export const vacateLocation = (plateau: Plateau, position: Position): void => {
+	if (!plateau.Grid) return;
+	if (!plateau.isValidLocation(plateau, position)) throw new Error('Location is not valid');
+
+	plateau.Grid[position.x][position.y].Occupied = false;
 };
