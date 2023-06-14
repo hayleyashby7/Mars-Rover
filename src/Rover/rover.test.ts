@@ -1,5 +1,5 @@
 import { Rover } from '../types';
-import { changePosition, createRover, changeDirection } from './rover';
+import { changePosition, createRover, changeDirection, moveRover } from './rover';
 import { Direction } from '../utils/direction';
 import { Position } from '../utils/position';
 
@@ -114,17 +114,17 @@ describe('Change Position', () => {
 	});
 });
 
- describe('Move Rover', () => {
+describe('Move Rover', () => {
 	it('can move forward', () => {
 		// Arrange
 		const rover: Rover = createRover();
+
 		const expectedPosition: Position = { x: 0, y: 1 };
 
 		// Act
-		const movedRover = moveRover(rover,'M');
+		const movedRover = moveRover(rover, 'M');
 
 		// Assert
 		expect(movedRover.Position).toEqual(expectedPosition);
 	});
 });
- 
