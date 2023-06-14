@@ -1,5 +1,3 @@
-import { createRover } from '../Rover/rover';
-import { Rover } from '../types';
 import { Position } from '../utils/position';
 import { runMission } from './mission';
 
