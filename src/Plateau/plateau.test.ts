@@ -108,4 +108,19 @@ describe('Plataeu', () => {
 		expect(resultBefore).toBe(false);
 		expect(resultAfter).toBe(true);
 	});
+
+	it('Vacating an empty grid location does nothing', () => {
+		//Arrange
+		const plateau: Plateau = createPlateau(5, 5);
+		const position: Position = { x: 1, y: 1 };
+		const resultBefore: boolean = isLocationEmpty(plateau, position);
+
+		//Act
+		vacateLocation(plateau, position);
+		const resultAfter: boolean = isLocationEmpty(plateau, position);
+
+		//Assert
+		expect(resultBefore).toBe(true);
+		expect(resultAfter).toBe(true);
+	});
 });
