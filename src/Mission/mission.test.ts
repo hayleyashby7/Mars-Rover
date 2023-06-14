@@ -1,3 +1,6 @@
+import { createRover } from '../Rover/rover';
+import { Rover } from '../types';
+import { Position } from '../utils/position';
 import { runMission } from './mission';
 
 describe('Mission', () => {
@@ -10,5 +13,18 @@ describe('Mission', () => {
 
 		// Assert
 		expect(result).toBeTruthy();
+	});
+
+	it('should process the moves of a rover', () => {
+		// Arrange
+		const startPosition: Position = { x: 1, y: 2 };
+		const moves: string = `LMLMLMLMM`;
+		const expectedPosition: Position = { x: 1, y: 3 };
+
+		// Act
+		const result = performActions(startPosition, moves);
+
+		// Assert
+		expect(result).toEqual(expectedPosition);
 	});
 });
